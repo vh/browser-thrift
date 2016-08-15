@@ -148,7 +148,7 @@ XHRConnection.prototype.flush = function() {
     xreq.setRequestHeader(headerKey, self.headers[headerKey]);
   });
 
-  xreq.send(this.send_buf.toString());
+  xreq.send(this.send_buf);
 };
 
 /**
