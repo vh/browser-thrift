@@ -1,0 +1,25 @@
+{
+  "name": "browser-thrift",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vh/browser-thrift.git"
+  },
+  "keywords": [
+    "thrift",
+    "webpack",
+    "browserify"
+  ],
+  "author": "Vadim Homchik",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vh/browser-thrift/issues"
+  },
+  "homepage": "https://github.com/vh/browser-thrift#readme",
+  "dependencies": {
+    "node-int64": "^0.4.0",
+    "q": "~1.4.1"
+  }
+}
