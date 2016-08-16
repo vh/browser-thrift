@@ -101,14 +101,34 @@ XHRConnection.prototype.flush = function() {
   var xreq = this.getXmlHttpRequestObject();
   xreq.seqid = this.seqid;
 
-  if (xreq.overrideMimeType) {
-    xreq.overrideMimeType('application/json');
+  // new browsers (XMLHttpRequest2-compliant)
+  if ('responseType' in xreq) {
+    if (this.protocol instanceof TJSONProtocol) {
+      xreq.responseType = 'json';
+    } else {
+      xreq.responseType = 'arraybuffer';
+    }
+  // old browsers (XMLHttpRequest-compliant)
+  } else if ('overrideMimeType' in xreq) {
+    if (this.protocol instanceof TJSONProtocol) {
+      xreq.overrideMimeType('application/json');
+    } else {
+      xreq.overrideMimeType('text\/plain; charset=x-user-defined');
+    }
+  }
+
+  if (!('onload' in xreq)) {
+    xreq.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        this.onload();
+      }
+    };
   }
 
   xreq.onload = function() {
     if (this.status == 200) {
-      if (this.responseText) {
-        self.setRecvBuffer(this.responseText, this.seqid);
+      if (this.response) {
+        self.setRecvBuffer(this.response, this.seqid);
       } else {
         var cb = self.client._reqs[this.seqid];
         delete self.client._reqs[this.seqid];
