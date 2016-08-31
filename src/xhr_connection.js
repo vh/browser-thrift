@@ -101,18 +101,12 @@ XHRConnection.prototype.flush = function() {
   var xreq = this.getXmlHttpRequestObject();
   xreq.seqid = this.seqid;
 
-  // new browsers (XMLHttpRequest2-compliant)
-  if ('responseType' in xreq) {
-    if (this.protocol instanceof TJSONProtocol) {
-      xreq.responseType = 'json';
-    } else {
+  if (this.protocol != TJSONProtocol) {
+    // new browsers (XMLHttpRequest2-compliant)
+    if ('responseType' in xreq) {
       xreq.responseType = 'arraybuffer';
-    }
-  // old browsers (XMLHttpRequest-compliant)
-  } else if ('overrideMimeType' in xreq) {
-    if (this.protocol instanceof TJSONProtocol) {
-      xreq.overrideMimeType('application/json');
-    } else {
+    // old browsers (XMLHttpRequest-compliant)
+    } else if ('overrideMimeType' in xreq) {
       xreq.overrideMimeType('text\/plain; charset=x-user-defined');
     }
   }
