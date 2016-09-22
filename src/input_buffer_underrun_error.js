@@ -22,7 +22,6 @@ module.exports = InputBufferUnderrunError;
 
 function InputBufferUnderrunError(message) {
   Error.call(this);
-  Error.captureStackTrace(this, this.constructor);
   this.name = this.constructor.name;
   this.message = message;
 };
