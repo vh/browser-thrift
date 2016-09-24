@@ -1,6 +1,6 @@
 {
   "name": "browser-thrift",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Thrift binding for browser",
   "main": "./src/index.js",
   "repository": {

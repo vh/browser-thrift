@@ -101,6 +101,8 @@ XHRConnection.prototype.flush = function() {
   var xreq = this.getXmlHttpRequestObject();
   xreq.seqid = this.seqid;
 
+  xreq.open('POST', this.url, true);
+
   if (this.protocol != TJSONProtocol) {
     // new browsers (XMLHttpRequest2-compliant)
     if ('responseType' in xreq) {
@@ -155,8 +157,6 @@ XHRConnection.prototype.flush = function() {
       thrift.TTransportExceptionType.TIMED_OUT,
       "Request timeout"));
   }
-
-  xreq.open('POST', this.url, true);
 
   Object.keys(this.headers).forEach(function(headerKey) {
     xreq.setRequestHeader(headerKey, self.headers[headerKey]);
