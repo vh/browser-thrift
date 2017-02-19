@@ -144,9 +144,10 @@ XHRConnection.prototype.flush = function() {
   xreq.onerror = function() {
     var cb = self.client._reqs[this.seqid];
     delete self.client._reqs[this.seqid];
+    var textType = this.responseType === "" || this.responseType === "text";
     cb && cb(new thrift.TTransportException(
       thrift.TTransportExceptionType.UNKNOWN,
-      this.responseText));
+      textType ? this.responseText : JSON.stringify(this.response)));
   }
 
   xreq.timeout = this.timeout;
