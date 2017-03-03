@@ -210,7 +210,7 @@ code for the these subcomponents is subject to the terms and
 conditions of the following licenses.
 
 --------------------------------------------------
-For the lib/nodejs/lib/thrift/json_parse.js:
+For the src/json_parse.js:
 
 /*
     json_parse.js
