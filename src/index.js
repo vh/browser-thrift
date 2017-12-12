@@ -24,6 +24,7 @@ exports.createXHRConnection = xhrConnection.createXHRConnection;
 exports.createXHRClient = xhrConnection.createXHRClient;
 
 exports.TBufferedTransport = require('./buffered_transport');
+exports.TFramedTransport = require('./framed_transport');
 
 exports.Protocol = exports.TJSONProtocol = require('./json_protocol');
 exports.TBinaryProtocol = require('./binary_protocol');

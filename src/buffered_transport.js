@@ -25,9 +25,15 @@ module.exports = TBufferedTransport;
 function TBufferedTransport(buffer, callback) {
   this.defaultReadBufferSize = 1024;
   this.writeBufferSize = 512; // Soft Limit
-  this.inBuf = new Buffer(this.defaultReadBufferSize);
+  if (buffer) {
+    this.inBuf = buffer;
+    this.writeCursor = buffer.byteLength; // for input buffer
+  } else {
+    this.inBuf = new Buffer(this.defaultReadBufferSize);
+      this.writeCursor = 0; // for input buffer
+  }
+
   this.readCursor = 0;
-  this.writeCursor = 0; // for input buffer
   this.outBuffers = [];
   this.outCount = 0;
   this.onFlush = callback;

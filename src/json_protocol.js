@@ -43,6 +43,9 @@ module.exports = TJSONProtocol;
 function TJSONProtocol(trans) {
   this.tstack = [];
   this.tpos = [];
+  this.rstack = [];
+  this.rpos = [];
+
   this.trans = trans;
 };
 
@@ -425,8 +428,6 @@ TJSONProtocol.prototype.writeBinary = function(arg) {
  * @returns {AnonReadMessageBeginReturn}
  */
 TJSONProtocol.prototype.readMessageBegin = function() {
-  this.rstack = [];
-  this.rpos = [];
 
   //Borrow the inbound transport buffer and ensure data is present/consistent
   var transBuf = this.trans.borrow();
