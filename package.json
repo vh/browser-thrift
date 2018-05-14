@@ -1,8 +1,9 @@
 {
   "name": "browser-thrift",
   "version": "0.7.0",
-  "description": "Thrift binding for browser",
-  "main": "./src/index.js",
+  "description": "Thrift binding for browser and nodejs",
+  "main": "./node.js",
+  "browser": "./browser.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vh/browser-thrift.git"
@@ -10,16 +11,20 @@
   "keywords": [
     "thrift",
     "webpack",
-    "browserify"
+    "browserify",
+    "universal"
   ],
-  "author": "Vadim Homchik",
+  "authors": [
+    "Vadim Homchik",
+    "Paolo Scanferla <paolo.scanferla@mondora.com>"
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/vh/browser-thrift/issues"
   },
   "homepage": "https://github.com/vh/browser-thrift#readme",
   "dependencies": {
-    "bluebird": "^3.5.1",
-    "node-int64": "^0.4.0"
+    "node-int64": "^0.4.0",
+    "thrift": "^0.11.0"
   }
 }
