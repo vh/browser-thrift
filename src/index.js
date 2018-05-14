@@ -30,7 +30,6 @@ exports.Protocol = exports.TJSONProtocol = require('./json_protocol');
 exports.TBinaryProtocol = require('./binary_protocol');
 exports.TCompactProtocol = require('./compact_protocol');
 
-var Promise = require('bluebird');
 exports.Q = {
   defer: function() {
     var deferred = {};

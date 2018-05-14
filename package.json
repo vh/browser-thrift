@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/vh/browser-thrift#readme",
   "dependencies": {
-    "bluebird": "^3.5.1",
     "node-int64": "^0.4.0",
     "thrift": "^0.11.0"
   }
