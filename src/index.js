@@ -34,11 +34,10 @@ var Promise = require('bluebird');
 exports.Q = {
   defer: function() {
     var deferred = {};
-    var promise = new Promise(function(resolve, reject) {
+    deferred.promise = new Promise(function (resolve, reject) {
       deferred.resolve = resolve;
-      deferred.reject  = reject;
+      deferred.reject = reject;
     });
-    deferred.promise = promise;
     return deferred;
   }
-}
+};

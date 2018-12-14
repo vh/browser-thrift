@@ -30,7 +30,7 @@ function TBufferedTransport(buffer, callback) {
     this.writeCursor = buffer.byteLength; // for input buffer
   } else {
     this.inBuf = new Buffer(this.defaultReadBufferSize);
-      this.writeCursor = 0; // for input buffer
+    this.writeCursor = 0; // for input buffer
   }
 
   this.readCursor = 0;
