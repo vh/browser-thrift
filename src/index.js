@@ -30,14 +30,5 @@ exports.Protocol = exports.TJSONProtocol = require('./json_protocol');
 exports.TBinaryProtocol = require('./binary_protocol');
 exports.TCompactProtocol = require('./compact_protocol');
 
-var Promise = require('bluebird');
-exports.Q = {
-  defer: function() {
-    var deferred = {};
-    deferred.promise = new Promise(function (resolve, reject) {
-      deferred.resolve = resolve;
-      deferred.reject = reject;
-    });
-    return deferred;
-  }
-};
+exports.Int64 = require('node-int64');
+exports.Q = require('q');

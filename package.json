@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/vh/browser-thrift#readme",
   "dependencies": {
-    "bluebird": "^3.5.3",
-    "node-int64": "^0.4.0"
+    "node-int64": "^0.4.0",
+    "q": "^1.5.1"
   }
 }
